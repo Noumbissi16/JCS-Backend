@@ -21,6 +21,7 @@ import {
   deleteTestimonialById,
   getTestimonialById,
   updatePhoto,
+  sendEmailToUsers,
 } from "../controllers/admin";
 import { upload } from "../middleware/upload";
 
@@ -52,5 +53,7 @@ router
   .get(getAllPhotos)
   .post(upload.single("image"), uploadPhoto);
 router.route("/photo/:id").delete(deletePhoto).patch(updatePhoto);
+
+router.post("/send-email", sendEmailToUsers);
 
 export default router;

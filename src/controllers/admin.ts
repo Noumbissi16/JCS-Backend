@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import {
   AchievementModel,
   AdminModel,
+  NewsletterSubscriberModel,
   PhotoGalleryModel,
   ServiceModel,
   TestimonialModel,
@@ -15,6 +16,7 @@ import {
   deleteFileFromCloudinary,
   uploadToCloudinary,
 } from "../middleware/upload";
+import { sendUserWelcomeEmail } from "../mailtrap/email";
 
 async function signin(req: any, res: Response, next: NextFunction) {
   const { password, email } = req.body;
@@ -217,8 +219,7 @@ const deleteTestimonialById = async (req: Request, res: Response) => {
 // Photo Controllers
 const uploadPhoto = async (req: Request, res: Response) => {
   const image = req.file;
-  const type = req.body;
-
+  const { type } = req.body;
   if (!image) {
     throw new BadRequest("Please upload an image with it's type");
   }
@@ -235,7 +236,7 @@ const uploadPhoto = async (req: Request, res: Response) => {
 const getAllPhotos = async (req: Request, res: Response) => {
   // Implement logic to fetch all photos from the database
   const photos = await PhotoGalleryModel.find({});
-  res.status(200).json({ photos });
+  res.status(200).json({ counts: photos.length, photos });
 };
 
 const deletePhoto = async (req: Request, res: Response) => {
@@ -257,7 +258,8 @@ const deletePhoto = async (req: Request, res: Response) => {
 const updatePhoto = async (req: Request, res: Response) => {
   const { id } = req.params;
   const newPhoto = req.file;
-  const type = req.body;
+  const { type } = req.body;
+  console.log(type);
   if (!newPhoto) {
     throw new BadRequest("Please upload an image");
   }
@@ -279,6 +281,20 @@ const updatePhoto = async (req: Request, res: Response) => {
 
   res.status(StatusCodes.OK).json({ msg: "Photo update succesfully", photo });
 };
+
+export async function sendEmailToUsers(req: Request, res: Response) {
+  const { emailID, usersId } = req.body;
+
+  const usersEmail = await NewsletterSubscriberModel.find({
+    _id: { $in: usersId },
+  });
+
+  usersEmail.forEach(async (user) => {
+    await sendUserWelcomeEmail(user.email);
+  });
+
+  return res.status(StatusCodes.OK).json({ msg: "Emails send successfully" });
+}
 
 export {
   createAchievment,
