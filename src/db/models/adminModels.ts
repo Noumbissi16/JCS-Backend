@@ -8,7 +8,7 @@ const achievementsSchema = new mongoose.Schema(
       type: String,
       required: [true, "Must provide a title"],
       trim: true,
-      maxlength: [20, "Title cannot be more than 20 characters"],
+      maxlength: [50, "Title cannot be more than 20 characters"],
     },
     description: {
       type: String,
@@ -45,6 +45,9 @@ const servicesSchema = new mongoose.Schema(
     description: {
       type: String,
       required: [true, "Must provide a description"],
+    },
+    link: {
+      type: String,
     },
   },
   {
@@ -90,9 +93,9 @@ const testimonialsSchema = new mongoose.Schema(
       required: [true, "Must provide the author's name"],
       trim: true,
     },
-    text: {
+    message: {
       type: String,
-      required: [true, "Must provide the testimonial text"],
+      required: [true, "Must provide the testimonial message"],
       trim: true,
     },
     image: {
@@ -143,11 +146,9 @@ const photoGallerySchema = new mongoose.Schema({
     required: [true, "Must provide a gallery type"],
     trim: true,
   },
-  images: [
-    {
-      type: String, // Assuming a URL for each image, adjust as needed
-    },
-  ],
+  imageUrl: {
+    type: String, // Assuming a URL for each image, adjust as needed
+  },
 });
 
 // Schema for News
@@ -266,4 +267,9 @@ export {
   PhotoGalleryModel,
   TestimonialModel,
   AdminModel,
+  FaqModel,
+  TeamModel,
+  CustomersPartnersModel,
+  NewsletterSubscriberModel,
+  NewsModel,
 };

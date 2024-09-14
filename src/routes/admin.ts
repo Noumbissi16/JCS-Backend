@@ -20,15 +20,14 @@ import {
   uploadPhoto,
   deleteTestimonialById,
   getTestimonialById,
+  updatePhoto,
 } from "../controllers/admin";
-import authMiddleware from "../middleware/authenticationMiddleware";
+import { upload } from "../middleware/upload";
 
 const router = express.Router();
 
-router.route("/signin").post(authMiddleware, signin);
-// router.route("/signin").post(signin);
+router.route("/signin").post(signin);
 router.route("/signup").post(signup);
-// router.route("/add-admin").post()
 router.route("/services").get(getAllServices).post(createService);
 router
   .route("/service/:id")
@@ -41,13 +40,17 @@ router
   .patch(updateAchievment)
   .delete(deleteAchievment)
   .get(getAchivementById);
-router.route("/testimonials").get(getAllTestimonies).post(createTestimonial);
+router.route("/testimonials").post(createTestimonial);
+router.get("/testimonials", getAllTestimonies);
 router
   .route("/testimonial/:id")
   .patch(updateTestimonial)
   .delete(deleteTestimonialById)
   .get(getTestimonialById);
-router.route("/photo").get(getAllPhotos).post(uploadPhoto);
-router.route("/photo/:id").delete(deletePhoto);
+router
+  .route("/photo")
+  .get(getAllPhotos)
+  .post(upload.single("image"), uploadPhoto);
+router.route("/photo/:id").delete(deletePhoto).patch(updatePhoto);
 
 export default router;
