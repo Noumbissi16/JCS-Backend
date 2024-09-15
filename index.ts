@@ -1,6 +1,7 @@
 require("express-async-errors");
 import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv";
+import swaggerUI from "swagger-ui-express";
 import userRoutes from "./src/routes/users";
 import adminRoutes from "./src/routes/admin";
 import connectDB from "./src/db/connect";
@@ -12,6 +13,8 @@ import helmet from "helmet";
 import mongoSanitize from "express-mongo-sanitize";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
+
+const docs = require("./docs.swagger.json");
 
 dotenv.config();
 
@@ -41,8 +44,22 @@ app.use(
 );
 // routes
 app.get("/", (req: Request, res: Response) => {
-  res.send("Welcome to JCS Group API");
+  res.send(
+    "Welcome to JCS Group API <h1><a href='/api-docs'>Go to docs</a></h1>"
+  );
 });
+
+app.use(
+  "/api-docs",
+  swaggerUI.serve,
+  swaggerUI.setup(docs, {
+    customCss:
+      ".swagger-ui .opblock .opblock-summary-path-description-wrapper { align-items: center; display: flex; flex-wrap: wrap; gap: 0 10px; padding: 0 10px; width: 100%; }",
+    customCssUrl:
+      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css",
+  })
+);
+
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/admin/auth", adminRoutes);
 app.use("/api/v1/admin", authMiddleware, adminRoutes);

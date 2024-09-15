@@ -1,0 +1,1064 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "JCS-Website",
+    "contact": {"phone number":"690277499"},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://example.com",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/users/achievements": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get All Achievements",
+        "operationId": "GetAllAchievements",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/users/services": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all services",
+        "operationId": "Getallservices",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/users/subscribe-newsletter": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "subscribe news letter",
+        "operationId": "subscribenewsletter",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/subscribenewsletterrequest"
+                  },
+                  {
+                    "example": {
+                      "email": "noumbissistael@gmail.com"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "email": "noumbissistael@gmail.com"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/users/testimonials": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all testimonials",
+        "operationId": "Getalltestimonials",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/users/photos": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all photos",
+        "operationId": "Getallphotos",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/auth/signin": {
+      "post": {
+        "tags": [
+          "Auth - Admin"
+        ],
+        "summary": "Sign in admin",
+        "operationId": "Signinadmin",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/SigninadminRequest"
+                  },
+                  {
+                    "example": {
+                      "email": "staeldoe1@gmail.com",
+                      "password": "12345"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "email": "staeldoe1@gmail.com",
+                "password": "12345"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/admin/auth/signup": {
+      "post": {
+        "tags": [
+          "Auth - Admin"
+        ],
+        "summary": "Sign up admin",
+        "operationId": "Signupadmin",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/SignupadminRequest"
+                  },
+                  {
+                    "example": {
+                      "name": "Stael Doe 1",
+                      "email": "staeldoe1@gmail.com",
+                      "password": "12345"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "name": "Stael Doe 1",
+                "email": "staeldoe1@gmail.com",
+                "password": "12345"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/admin/achievements": {
+      "get": {
+        "tags": [
+          "Achievements"
+        ],
+        "summary": "Get All Achievements",
+        "operationId": "GetAllAchievements1",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Achievements"
+        ],
+        "summary": "Create an achievement",
+        "operationId": "Createanachievement",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateanachievementRequest"
+                  },
+                  {
+                    "example": {
+                      "title": "Cybersecurity",
+                      "description": "Implemented advanced cybersecurity measures that protected client data from several attempted breaches.",
+                      "images": [
+                        "https://jcsgroup.com/images/cybersecurity_success.jpg"
+                      ],
+                      "services": "66d22031e14a26d9b781fe4c"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "title": "Cybersecurity",
+                "description": "Implemented advanced cybersecurity measures that protected client data from several attempted breaches.",
+                "images": [
+                  "https://jcsgroup.com/images/cybersecurity_success.jpg"
+                ],
+                "services": "66d22031e14a26d9b781fe4c"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/achievement/{id}": {
+      "get": {
+        "tags": [
+          "Achievements"
+        ],
+        "summary": "Get an achievement",
+        "operationId": "Getanachievement",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "patch": {
+        "tags": [
+          "Achievements"
+        ],
+        "summary": "Update an achievement",
+        "operationId": "Updateanachievement",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UpdateanachievementRequest"
+                  },
+                  {
+                    "example": {
+                      "title": "Awesome App"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "title": "Awesome App"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Achievements"
+        ],
+        "summary": "Delete an achievement",
+        "operationId": "Deleteanachievement",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/services": {
+      "post": {
+        "tags": [
+          "Services"
+        ],
+        "summary": "Create a service",
+        "operationId": "Createaservice",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateaserviceRequest"
+                  },
+                  {
+                    "example": {
+                      "title": "Cybersecurity",
+                      "description": "Robust cybersecurity solutions to protect your digital assets and data.",
+                      "link_to_application": "https://jcsgroup.com/apply/cybersecurity"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "title": "Cybersecurity",
+                "description": "Robust cybersecurity solutions to protect your digital assets and data.",
+                "link_to_application": "https://jcsgroup.com/apply/cybersecurity"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "get": {
+        "tags": [
+          "Services"
+        ],
+        "summary": "Get All Services",
+        "operationId": "GetAllServices",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/service/{id}": {
+      "get": {
+        "tags": [
+          "Services"
+        ],
+        "summary": "Get a Service",
+        "operationId": "GetaService",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "patch": {
+        "tags": [
+          "Services"
+        ],
+        "summary": "Update a service",
+        "operationId": "Updateaservice",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UpdateaserviceRequest"
+                  },
+                  {
+                    "example": {
+                      "title": "Digital Marketing!"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "title": "Digital Marketing!"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Services"
+        ],
+        "summary": "delete a service",
+        "operationId": "deleteaservice",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/testimonials": {
+      "get": {
+        "tags": [
+          "Testimonials"
+        ],
+        "summary": "Get all testimonials",
+        "operationId": "Getalltestimonials1",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Testimonials"
+        ],
+        "summary": "Create a testimonial",
+        "operationId": "Createatestimonial",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateatestimonialRequest"
+                  },
+                  {
+                    "example": {
+                      "author": "John Doe",
+                      "message": "JCS GROUP delivered exceptional service, exceeding our expectations in every way.",
+                      "image": "https://jcsgroup.com/images/john_doe.jpg"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "author": "John Doe",
+                "message": "JCS GROUP delivered exceptional service, exceeding our expectations in every way.",
+                "image": "https://jcsgroup.com/images/john_doe.jpg"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/testimonial/{id}": {
+      "get": {
+        "tags": [
+          "Testimonials"
+        ],
+        "summary": "Get a testimonial",
+        "operationId": "Getatestimonial",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "Testimonials"
+        ],
+        "summary": "delete a testimonial",
+        "operationId": "deleteatestimonial",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "patch": {
+        "tags": [
+          "Testimonials"
+        ],
+        "summary": "Update a testimonial",
+        "operationId": "Updateatestimonial",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UpdateatestimonialRequest"
+                  },
+                  {
+                    "example": {
+                      "author": "John Doe"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "author": "John Doe"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/photo": {
+      "get": {
+        "tags": [
+          "Photo gallery"
+        ],
+        "summary": "get all photos",
+        "operationId": "getallphotos",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Photo gallery"
+        ],
+        "summary": "Create a photo",
+        "operationId": "Createaphoto",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "image",
+                  "type"
+                ],
+                "type": "object",
+                "properties": {
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "type": {
+                    "type": "string",
+                    "example": "Event"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/photo/{id}": {
+      "delete": {
+        "tags": [
+          "Photo gallery"
+        ],
+        "summary": "delete a photo",
+        "operationId": "deleteaphoto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "66e5f2dee73876b4547a5bc4"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      },
+      "patch": {
+        "tags": [
+          "Photo gallery"
+        ],
+        "summary": "Update a photo",
+        "operationId": "Updateaphoto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/": {
+      "get": {
+        "tags": [
+          "Partners"
+        ],
+        "summary": "New Request",
+        "operationId": "NewRequest",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "subscribenewsletterrequest": {
+        "title": "subscribenewsletterrequest",
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "noumbissistael@gmail.com"
+        }
+      },
+      "SigninadminRequest": {
+        "title": "SigninadminRequest",
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "staeldoe1@gmail.com",
+          "password": "12345"
+        }
+      },
+      "SignupadminRequest": {
+        "title": "SignupadminRequest",
+        "required": [
+          "name",
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "Stael Doe 1",
+          "email": "staeldoe1@gmail.com",
+          "password": "12345"
+        }
+      },
+      "CreateanachievementRequest": {
+        "title": "CreateanachievementRequest",
+        "required": [
+          "title",
+          "description",
+          "images",
+          "services"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          },
+          "services": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "title": "Cybersecurity",
+          "description": "Implemented advanced cybersecurity measures that protected client data from several attempted breaches.",
+          "images": [
+            "https://jcsgroup.com/images/cybersecurity_success.jpg"
+          ],
+          "services": "66d22031e14a26d9b781fe4c"
+        }
+      },
+      "UpdateanachievementRequest": {
+        "title": "UpdateanachievementRequest",
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "title": "Awesome App"
+        }
+      },
+      "CreateaserviceRequest": {
+        "title": "CreateaserviceRequest",
+        "required": [
+          "title",
+          "description",
+          "link_to_application"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "link_to_application": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "title": "Cybersecurity",
+          "description": "Robust cybersecurity solutions to protect your digital assets and data.",
+          "link_to_application": "https://jcsgroup.com/apply/cybersecurity"
+        }
+      },
+      "UpdateaserviceRequest": {
+        "title": "UpdateaserviceRequest",
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "title": "Digital Marketing!"
+        }
+      },
+      "CreateatestimonialRequest": {
+        "title": "CreateatestimonialRequest",
+        "required": [
+          "author",
+          "message",
+          "image"
+        ],
+        "type": "object",
+        "properties": {
+          "author": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "author": "John Doe",
+          "message": "JCS GROUP delivered exceptional service, exceeding our expectations in every way.",
+          "image": "https://jcsgroup.com/images/john_doe.jpg"
+        }
+      },
+      "UpdateatestimonialRequest": {
+        "title": "UpdateatestimonialRequest",
+        "required": [
+          "author"
+        ],
+        "type": "object",
+        "properties": {
+          "author": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "author": "John Doe"
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "For users app"
+    },
+    {
+      "name": "Auth - Admin"
+    },
+    {
+      "name": "Achievements"
+    },
+    {
+      "name": "Services"
+    },
+    {
+      "name": "Testimonials"
+    },
+    {
+      "name": "Photo gallery"
+    },
+    {
+      "name": "Partners"
+    }
+  ]
+}
