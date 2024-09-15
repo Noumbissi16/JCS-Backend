@@ -52,12 +52,15 @@ app.get("/", (req: Request, res: Response) => {
 app.use(
   "/api-docs",
   swaggerUI.serve,
-  swaggerUI.setup(docs, {
-    customCss:
-      ".swagger-ui .opblock .opblock-summary-path-description-wrapper { align-items: center; display: flex; flex-wrap: wrap; gap: 0 10px; padding: 0 10px; width: 100%; }",
-    customCssUrl:
-      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css",
-  })
+  swaggerUI.setup(
+    docs
+    //   {
+    //   customCss:
+    //     ".swagger-ui .opblock .opblock-summary-path-description-wrapper { align-items: center; display: flex; flex-wrap: wrap; gap: 0 10px; padding: 0 10px; width: 100%; }",
+    //   customCssUrl:
+    //     "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css",
+    // }
+  )
 );
 
 app.use("/api/v1/users", userRoutes);
