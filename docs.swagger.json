@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://example.com",
+      "url": "https://jcs-backend-chi.vercel.app/",
       "variables": {}
     }
   ],
